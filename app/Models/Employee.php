@@ -22,6 +22,18 @@ class Employee extends Model
         'tempatlahir',
         'tgl_lahir',
         'cv',
-
+        'sexdesc',
+        'email',
+        'agama',
+        'pendidikan',
+        'alamat_ktp',
+        'alamat_domisili',
+        'npwp',
+        'bank',
+        'bank_norek',
+        'bank_account',
+        'no_ktp',
+        'nik',
+        'jkdesc',
     ];
 }

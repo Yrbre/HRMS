@@ -8,7 +8,7 @@
         }
 
         .card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4264ffff 0%, #a144ffff 100%);
             color: white;
             border-bottom: none;
             padding: 1.5rem;
@@ -49,7 +49,7 @@
 
         .form-control:focus,
         .form-select:focus {
-            border-color: #667eea;
+            border-color: #4264ffff;
             box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
         }
 
@@ -61,7 +61,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4264ffff 0%, #a144ffff 100%);
             border: none;
             border-radius: 8px;
             padding: 0.75rem 2rem;
@@ -102,7 +102,7 @@
                     </div>
                     <div class="card-body">
                         <!-- Vertical Form -->
-                        <form wire:submit.="tambahkaryawan" class="row g-4">
+                        <form wire:submit="tambahkaryawan" class="row g-4">
                             <!-- Data Pribadi -->
                             <div class="form-section">
                                 <h5 class="section-title"><i class="bi bi-person-vcard me-2"></i>Data Pribadi</h5>
@@ -160,12 +160,12 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="tanggallahir" class="form-label">Tanggal Lahir</label>
+                                        <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-calendar"></i></span>
-                                            <input wire:model="tanggallahir" type="date" class="form-control @error('tanggallahir') is-invalid @enderror">
+                                            <input wire:model="tgl_lahir" type="date" class="form-control @error('tgl_lahir') is-invalid @enderror" id="tgl_lahir" placeholder="Masukkan Tanggal Lahir">
                                         </div>
-                                        @error('tanggallahir')
+                                        @error('tgl_lahir')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -173,16 +173,16 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="jeniskelamin" class="form-label">Jenis Kelamin</label>
+                                        <label for="sexdesc" class="form-label">Jenis Kelamin</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
-                                            <select wire:model="jeniskelamin" class="form-select @error('jeniskelamin') is-invalid @enderror" id="jeniskelamin">
+                                            <select wire:model="sexdesc" class="form-select @error('sexdesc') is-invalid @enderror" id="sexdesc">
                                                 <option selected value="">Pilih Jenis Kelamin</option>
                                                 <option value="PRIA">Pria</option>
                                                 <option value="WANITA">Wanita</option>
                                             </select>
                                         </div>
-                                        @error('jeniskelamin')
+                                        @error('sexdesc')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -239,12 +239,12 @@
                                 <h5 class="section-title"><i class="bi bi-house me-2"></i>Alamat</h5>
                                 <div class="row g-3">
                                     <div class="col-12">
-                                        <label for="alamatktp" class="form-label">Alamat KTP</label>
+                                        <label for="alamat_ktp" class="form-label">Alamat KTP</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-house-door"></i></span>
-                                            <input wire:model="alamatktp" type="text" class="form-control @error('alamatktp') is-invalid @enderror" id="alamatktp" placeholder="Masukkan Alamat KTP">
+                                            <input wire:model="alamat_ktp" type="text" class="form-control @error('alamat_ktp') is-invalid @enderror" id="alamat_ktp" placeholder="Masukkan Alamat KTP">
                                         </div>
-                                        @error('alamatktp')
+                                        @error('alamat_ktp')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -252,12 +252,12 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="alamatdomisili" class="form-label">Alamat Domisili</label>
+                                        <label for="alamat_domisili" class="form-label">Alamat Domisili</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-house-check"></i></span>
-                                            <input wire:model="alamatdomisili" type="text" class="form-control @error('alamatdomisili') is-invalid @enderror" id="alamatdomisili" placeholder="Masukkan Alamat Domisili">
+                                            <input wire:model="alamat_domisili" type="text" class="form-control @error('alamat_domisili') is-invalid @enderror" id="alamat_domisili" placeholder="Masukkan Alamat Domisili">
                                         </div>
-                                        @error('alamatdomisili')
+                                        @error('alamat_domisili')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -305,12 +305,12 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="norek" class="form-label">Nomor Rekening</label>
+                                        <label for="bank_norek" class="form-label">Nomor Rekening</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-credit-card-2-front"></i></span>
-                                            <input wire:model="norek" type="number" class="form-control @error('norek') is-invalid @enderror" id="norek" placeholder="Masukkan Nomor Rekening">
+                                            <input wire:model="bank_norek" type="number" class="form-control @error('bank_norek') is-invalid @enderror" id="bank_norek" placeholder="Masukkan Nomor Rekening">
                                         </div>
-                                        @error('norek')
+                                        @error('bank_norek')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -318,12 +318,12 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="bankaccount" class="form-label">Bank Account</label>
+                                        <label for="bank_account" class="form-label">Bank Account</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
-                                            <input wire:model="bankaccount" type="text" class="form-control @error('bankaccount') is-invalid @enderror" id="bankaccount" placeholder="Masukkan Bank Account">
+                                            <input wire:model="bank_account" type="text" class="form-control @error('bank_account') is-invalid @enderror" id="bank_account" placeholder="Masukkan Bank Account">
                                         </div>
-                                        @error('bankaccount')
+                                        @error('bank_account')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -350,11 +350,11 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="jabatan" class="form-label">Jabatan</label>
+                                        <label for="jabdesc" class="form-label">Department</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
-                                            <select wire:model="jabatan" class="form-select @error('jabatan') is-invalid @enderror" id="jabatan">
-                                                <option selected value="">Pilih Jabatan</option>
+                                            <select wire:model="jabdesc" class="form-select @error('jabdesc') is-invalid @enderror" id="jabdesc">
+                                                <option selected value="">Pilih Department</option>
                                                 <option value="OPERATOR">Operator</option>
                                                 <option value="OPERATOR LEADER">Operator Leader</option>
                                                 <option value="SUPERVISOR">Supervisor</option>
@@ -365,7 +365,31 @@
                                                 <option value="DIRECTUR">Directur</option>
                                             </select>
                                         </div>
-                                        @error('jabatan')
+                                        @error('jabdesc')
+                                        <small class="text-danger">
+                                            {{ $message }}
+                                        </small>
+                                        @enderror
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <label for="deptdesc" class="form-label">Department</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
+                                            <select wire:model="deptdesc" class="form-select @error('deptdesc') is-invalid @enderror" id="deptdesc">
+                                                <option selected value="">Pilih Department</option>
+                                                <option value="Finance & Accounting">Finance & Accounting</option>
+                                                <option value="Business Audit">Business Audit</option>
+                                                <option value="Corporate Secretary">Corporate Secretary</option>
+                                                <option value="Engineering Maintenance">Engineering Maintenance</option>
+                                                <option value="Environment, Safety, And Health">Environment, Safety, And Health</option>
+                                                <option value="Filament 1 Inspection">Filament 1 Inspection</option>
+                                                <option value="	Environment, Safety, And Health">Filament 1 Logistic</option>
+                                            </select>
+                                        </div>
+                                        @error('deptdesc')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -373,10 +397,10 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="status" class="form-label">Status</label>
+                                        <label for="jkdesc" class="form-label">Status</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
-                                            <select wire:model="status" class="form-select @error('status') is-invalid @enderror" id="status">
+                                            <select wire:model="jkdesc" class="form-select @error('jkdesc') is-invalid @enderror" id="jkdesc">
                                                 <option selected value="">Pilih Status</option>
                                                 <option value="PERMANENT">Permanent</option>
                                                 <option value="PROBATION">Probation</option>
@@ -384,7 +408,7 @@
                                                 <option value="TRAINEE">Trainee</option>
                                             </select>
                                         </div>
-                                        @error('status')
+                                        @error('jkdesc')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
@@ -392,12 +416,12 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="tanggalbergabung" class="form-label">Tanggal Bergabung</label>
+                                        <label for="tglmasuk" class="form-label">Tanggal Bergabung</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
-                                            <input wire:model="tanggalbergabung" type="date" class="form-control @error('tanggalbergabung') is-invalid @enderror" id="tanggalbergabung">
+                                            <input wire:model="tglmasuk" type="date" class="form-control @error('tglmasuk') is-invalid @enderror" id="tglmasuk">
                                         </div>
-                                        @error('tanggalbergabung')
+                                        @error('tglmasuk')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>
