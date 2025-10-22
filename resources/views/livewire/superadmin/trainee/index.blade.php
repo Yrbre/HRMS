@@ -22,60 +22,6 @@
                                     </div>
                                 </div>
 
-                                <div class="d-flex justify-content-end mb-2">
-                                    <span class="nav-item dropdown pe-3">
-                                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                                            <span class="d-none d-md-block dropdown-toggle ps-2">
-                                                <i class="ri-filter-2-line"></i> Filter
-                                            </span>
-                                        </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" id="filterDropdownMenu">
-                                            <li class="dropdown-header">
-                                                <h6>Filter</h6>
-                                            </li>
-
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-
-                                            <li>
-                                                <div class="form-check p-2">
-                                                    <input class="form-check-input" type="checkbox" value="kategori-a" id="filterA">
-                                                    <label class="form-check-label" for="filterA">
-                                                        Kategori A
-                                                    </label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="form-check p-2">
-                                                    <input class="form-check-input" type="checkbox" value="kategori-b" id="filterB">
-                                                    <label class="form-check-label" for="filterB">
-                                                        Kategori B
-                                                    </label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="form-check p-2">
-                                                    <input class="form-check-input" type="checkbox" value="kategori-c" id="filterC">
-                                                    <label class="form-check-label" for="filterC">
-                                                        Kategori C
-                                                    </label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-
-                                            <li class="text-center p-2">
-                                                <button class="btn btn-primary btn-sm" id="applyFilterBtn">Terapkan</button>
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </div>
 
                                 <table class="table table-hover table-sm" cellspacing="0" width="200%">
                                     <thead class="thead-light font-weight-bold text-primary">
@@ -94,7 +40,7 @@
                                         @foreach ( $employees as $item)
                                         <tr>
                                             <td><small>{{ $loop->iteration }}</small></td>
-                                            <td><img src="{{ asset('adminlte3/hrms/images/bod-&-boc-01.png') }}" height='40' class='rounded-circle' alt=""></td>
+                                            <td><img src="{{ asset('hrms/images/bod-&-boc-01.png') }}" height='40' class='rounded-circle' alt=""></td>
                                             <td><small>{{ $item->nik }}</td></small>
                                             <td><span class="badge rounded-pill bg-primary">{{ $item->namalengkap }}</span></td>
                                             <td><small>{{ $item->deptdesc }}</small></td>

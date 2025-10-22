@@ -259,7 +259,7 @@
 
                         <h5 class="card-title">Komposisi Usia <span>| Karyawan </span></h5>
 
-                        <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+                        <div wire:ignore id="trafficChart" style="min-height: 400px;" class="echart"></div>
                         @push('scripts')
                         <script>
                             document.addEventListener("DOMContentLoaded", () => {

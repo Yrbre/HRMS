@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
-            <img src="{{ asset('adminlte3/hrms/assets/img/logo.png') }}">
+            <img src="{{ asset('hrms/assets/img/logo.png') }}">
             <span class="d-none d-lg-block">HRMS TIFICO</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -26,7 +26,7 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="{{ asset('adminlte3/hrms/assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+                    <img src="{{ asset('hrms/assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
                 </a><!-- End Profile Iamge Icon -->
 

@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{ asset('adminlte3/hrms/assets/img/favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('adminlte3/hrms/assets/img/apple-touch-icon.png') }}">
+    <link rel="icon" href="{{ asset('hrms/assets/img/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('hrms/assets/img/apple-touch-icon.png') }}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">

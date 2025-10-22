@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                        <img src="{{ asset('adminlte3/hrms/assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+                        <img src="{{ asset('hrms/assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
                         <h2 class="text-center">{{ $employee->namalengkap }}</h3>
                             <small class="badge rounded-pill bg-primary  mt-1">{{ $employee->jabdesc }}</small>
                     </div>
@@ -58,7 +58,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 small fst-italic fw-bold">Joint Date</div>
-                                    <div class="col-lg-8 col-md-8 label">: {{$employee->tglmasuk}} | {{ $employee->mk_thn }} Tahun | {{ $employee->mk_bln }} Bulan | {{ $employee->mk_hari }} Hari</div>
+                                    <div class="col-lg-8 col-md-8 label">: {{$employee->tglmasuk}} | {{ $jointahun }} Tahun | {{ $joinbulan }} Bulan | {{ $joinhari }} Hari</div>
                                 </div>
 
                                 <div class="row">
@@ -68,7 +68,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 small fst-italic fw-bold">Tempat & Tanggal Lahir</div>
-                                    <div class="col-lg-8 col-md-8 label">: {{ $employee->tempatlahir }} {{ $employee->tgl_lahir }} | {{ $employee->umur_thn }} Tahun, {{ $employee->umur_bln }} Bulan, {{ $employee->umur_hari}} Hari</div>
+                                    <div class="col-lg-8 col-md-8 label">: {{ $employee->tempatlahir }} {{ $employee->tgl_lahir }} | {{ $umurtahun }} Tahun, {{ $umurbulan }} Bulan, {{ $umurhari}} Hari</div>
                                 </div>
 
 

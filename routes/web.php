@@ -20,4 +20,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/karyawan/detail/{id}', function ($id) {
         return view('superadmin.karyawan.detailkaryawan', ['employee' => Employee::findOrFail($id)]);
     })->name('superadmin.karyawan.detailkaryawan');
+    Route::view('/karyawan/tambah', 'superadmin.karyawan.tambahkaryawan')->name('superadmin.karyawan.tambahkaryawan');
 });

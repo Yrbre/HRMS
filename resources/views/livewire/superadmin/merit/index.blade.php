@@ -37,7 +37,7 @@
                                         @foreach ( $employee as $item)
                                         <tr>
                                             <td><small>{{ $loop->iteration }}</small></td>
-                                            <td><img src="{{ asset('adminlte3/hrms/images/bod-&-boc-01.png') }}" height='40' class='rounded-circle' alt=""></td>
+                                            <td><img src="{{ asset('hrms/images/bod-&-boc-01.png') }}" height='40' class='rounded-circle' alt=""></td>
                                             <td><small>{{ $item->nik }}</td></small>
                                             <td><span class="badge rounded-pill bg-primary">{{ $item->namalengkap }}</span></td>
                                             <td><small>{{ $item->deptdesc }}</small></td>

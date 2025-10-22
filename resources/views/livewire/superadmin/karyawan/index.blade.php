@@ -21,7 +21,7 @@
                                         <input wire:model.live="search" type="text" class="form-control" placeholder="Search...">
                                     </div>
                                 </div>
-                                <button wire:click="create" type="button" class="btn btn-primary mt-2 btn-sm" data-bs-toggle="modal" data-bs-target="#createlargeModal"><i class="bi bi-person-plus"></i> Tambah Karyawan</button>
+                                <button wire:click="create" type="button" class="btn btn-primary mt-2 btn-sm"><i class="bi bi-person-plus"></i> Tambah Karyawan</button>
                                 <table class="table table-hover table-sm" cellspacing="0" width="200%">
                                     <thead class="thead-light font-weight-bold text-primary">
                                         <tr>
@@ -42,7 +42,7 @@
                                         @foreach ( $employee as $item)
                                         <tr>
                                             <td><small>{{ $loop->iteration }}</small></td>
-                                            <td><img src="{{ asset('adminlte3/hrms/images/bod-&-boc-01.png') }}" height='40' class='rounded-circle' alt=""></td>
+                                            <td><img src="{{ asset('hrms/images/bod-&-boc-01.png') }}" height='40' class='rounded-circle' alt=""></td>
                                             <td><small>{{ $item->nik }}</td></small>
                                             <td><span class="badge rounded-pill bg-primary">{{ $item->namalengkap }}</span></td>
                                             <td><small>{{ $item->deptdesc }}</small></td>

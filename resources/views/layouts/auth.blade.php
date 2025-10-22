@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{ asset('adminlte3/hrms/assets/img/favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('adminlte3/hrms/assets/img/apple-touch-icon.png') }}">
+    <link rel="icon" href="{{ asset('hrms/assets/img/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('hrms/assets/img/apple-touch-icon.png') }}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,7 +34,7 @@
 
 
                             <div class="text-center">
-                                <img src="{{ asset('adminlte3/hrms/images/LogoTifico1.png') }}" class="mt-4x rounded mx-auto d-block" alt="Responsive image">
+                                <img src="{{ asset('hrms/images/LogoTifico1.png') }}" class="mt-4x rounded mx-auto d-block" alt="Responsive image">
                             </div>
                             <!-- End Logo -->
                             <h6 class="text-center pb-0 fs-4 text-bold text-uppercase mt-2">PT. Tifico Fiber Indonesia, Tbk.</h6>

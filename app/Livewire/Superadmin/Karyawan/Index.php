@@ -49,10 +49,8 @@ class Index extends Component
     }
     public function create()
     {
-        $this->resetValidation();
-        $this->reset([
-            'nama'
-        ]);
+
+        return redirect()->route('superadmin.karyawan.tambahkaryawan');
     }
 
     public function store()

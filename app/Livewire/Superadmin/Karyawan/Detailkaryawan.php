@@ -7,25 +7,24 @@ use App\Models\employee;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class Detailkaryawan extends Component
 {
     use WithFileUploads;
 
-    public $employee, $namalengkap, $nik, $jabdesc, $jkdesc, $deptdesc, $tglmasuk, $mk_thn, $mk_bln, $mk_hari, $gradedesc, $tempatlahir, $tgl_lahir, $umur_thn, $umur_bln, $umur_hari, $cv, $old_cv, $karyawan_id;
-    public $gradeOptions = [];
+    public $employee, $namalengkap, $nik, $jabdesc, $jkdesc, $deptdesc, $tglmasuk, $mk_thn, $mk_bln, $mk_hari, $gradedesc, $tempatlahir, $tgl_lahir, $cv, $old_cv, $karyawan_id;
     public $umurtahun, $umurbulan, $umurhari;
+    public $jointahun, $joinbulan, $joinhari;
+    public $gradeOptions = [];
 
     #[Layout('layouts.app')]
     public function mount($karyawan_id)
     {
 
         $employee = Employee::findOrFail($karyawan_id);
-
-
         $this->employee     = $employee;
         $this->karyawan_id  = $employee->id;
         $this->nik          = $employee->nik;
@@ -37,9 +36,40 @@ class Detailkaryawan extends Component
         $this->tempatlahir  = $employee->tempatlahir;
         $this->tgl_lahir    = $employee->tgl_lahir;
         $this->old_cv       = $employee->cv;
+        if ($this->tgl_lahir) {
+            // Ubah tanggal lahir menjadi objek Carbon
+            $tanggalLahir = Carbon::parse($this->tgl_lahir);
 
-        $umur_count = DB::row('TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE())');
-        $umurtahun = DB::table('employees')->where($umur_count, 56)->count('nik');
+            // Hitung selisihnya dengan hari ini
+            $selisih = $tanggalLahir->diff(Carbon::now());
+
+            // Simpan hasil perhitungan ke properti
+            $this->umurtahun  = $selisih->y; // 'y' untuk Tahun (Year)
+            $this->umurbulan  = $selisih->m; // 'm' untuk Bulan (Month)
+            $this->umurhari = $selisih->d; // 'd' untuk Hari (Day)
+        } else {
+            // Jika karyawan tidak punya tgl_lahir
+            $this->umurtahun  = 0;
+            $this->umurbulan  = 0;
+            $this->umurhari = 0;
+        }
+
+        if ($this->tglmasuk) {
+            $tanggalMasuk = Carbon::parse($this->tglmasuk);
+
+            $selisihJoin = $tanggalMasuk->diff(Carbon::now());
+
+            $this->jointahun  = $selisihJoin->y;
+            $this->joinbulan  = $selisihJoin->m;
+            $this->joinhari = $selisihJoin->d;
+        } else {
+            $this->jointahun  = 0;
+            $this->joinbulan  = 0;
+            $this->joinhari = 0;
+        }
+
+        // 3. LOGIKA BARU UNTUK MENGHITUNG UMUR (Y, M, D)
+
     }
     public function render()
     {
@@ -96,18 +126,47 @@ class Detailkaryawan extends Component
             ]);
 
             // 4. Lakukan sinkronisasi state komponen setelah berhasil menyimpan.
+            if ($this->tgl_lahir) {
+                // Ubah tanggal lahir menjadi objek Carbon
+                $tanggalLahir = Carbon::parse($this->tgl_lahir);
+
+                // Hitung selisihnya dengan hari ini
+                $selisih = $tanggalLahir->diff(Carbon::now());
+
+                // Simpan hasil perhitungan ke properti
+                $this->umurtahun  = $selisih->y; // 'y' untuk Tahun (Year)
+                $this->umurbulan  = $selisih->m; // 'm' untuk Bulan (Month)
+                $this->umurhari = $selisih->d; // 'd' untuk Hari (Day)
+            } else {
+                // Jika karyawan tidak punya tgl_lahir
+                $this->umurtahun  = 0;
+                $this->umurbulan  = 0;
+                $this->umurhari = 0;
+            }
+
+            if ($this->tglmasuk) {
+                $tanggalMasuk = Carbon::parse($this->tglmasuk);
+
+                $selisihJoin = $tanggalMasuk->diff(Carbon::now());
+
+                $this->jointahun  = $selisihJoin->y;
+                $this->joinbulan  = $selisihJoin->m;
+                $this->joinhari = $selisihJoin->d;
+            } else {
+                $this->jointahun  = 0;
+                $this->joinbulan  = 0;
+                $this->joinhari = 0;
+            }
 
 
             $this->cv = null;
-
-
-            $this->employee->refresh();
-
 
             $this->old_cv = $this->employee->cv;
 
 
             $this->dispatch('berhasilSimpanData');
+
+            $this->employee->refresh();
         } catch (\Exception $e) {
 
             $this->dispatch('gagalSimpanData');
