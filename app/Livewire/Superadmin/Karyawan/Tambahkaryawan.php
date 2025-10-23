@@ -4,10 +4,11 @@ namespace App\Livewire\Superadmin\Karyawan;
 
 use Livewire\Component;
 use App\Models\Employee;
+use Illuminate\Validation\ValidationException;
 
 class Tambahkaryawan extends Component
 {
-    public $no_ktp, $namalengkap, $email, $tempatlahir, $tgl_lahir, $sexdesc, $pendidikan, $agama, $alamat_ktp, $alamat_domisili, $npwp, $bank, $bank_norek, $bank_account, $nik, $jabdesc, $jkdesc, $tglmasuk;
+    public $no_ktp, $namalengkap, $email, $tempatlahir, $tgl_lahir, $sexdesc, $pendidikan, $agama, $alamat_ktp, $alamat_domisili, $npwp, $bank, $bank_norek, $bank_account, $nik, $jabdesc, $jkdesc, $tglmasuk, $deptdesc;
     public function render()
     {
         return view('livewire.superadmin.karyawan.tambahkaryawan');
@@ -26,7 +27,7 @@ class Tambahkaryawan extends Component
             'agama'           => 'required',
             'alamat_ktp'      => 'required',
             'alamat_domisili' => 'required',
-            'npwp'            => 'nullable',
+            'npwp'            => 'required',
             'bank'            => 'required',
             'bank_norek'      => 'required',
             'bank_account'    => 'required',
@@ -34,6 +35,7 @@ class Tambahkaryawan extends Component
             'jabdesc'         => 'required',
             'jkdesc'          => 'required',
             'tglmasuk'        => 'required|date',
+            'deptdesc'        => 'required',
         ], [
             'no_ktp.required'          => 'No KTP wajib diisi.',
             'no_ktp.unique'            => 'No KTP sudah terdaftar.',
@@ -58,6 +60,8 @@ class Tambahkaryawan extends Component
             'jkdesc.required'          => 'Status wajib diisi.',
             'tglmasuk.required'        => 'Tanggal Bergabung wajib diisi.',
             'tglmasuk.date'            => 'Format Tanggal Bergabung tidak valid.',
+            'deptdesc.required'        => 'Departemen wajib diisi.',
+            'npwp.required'            => 'NPWP wajib diisi.',
         ]);
         $employee                   = new Employee();
         $employee->no_ktp           = $this->no_ktp;
@@ -66,24 +70,31 @@ class Tambahkaryawan extends Component
         $employee->tempatlahir      = $this->tempatlahir;
         $employee->tgl_lahir        = $this->tgl_lahir;
         $employee->sexdesc          = $this->sexdesc;
-        $employee->pendidikan       = $this->pendidikan;
-        $employee->agama            = $this->agama;
-        $employee->alamat_ktp       = $this->alamat_ktp;
-        $employee->alamat_domisili  = $this->alamat_domisili;
-        $employee->npwp             = $this->npwp;
-        $employee->bank             = $this->bank;
-        $employee->bank_norek       = $this->bank_norek;
-        $employee->bank_account     = $this->bank_account;
-        $employee->nik              = $this->nik;
-        $employee->jabdesc          = $this->jabdesc;
-        $employee->jkdesc           = $this->jkdesc;
-        $employee->tglmasuk         = $this->tglmasuk;
+        if (isset($this->sexdesc)) {
+            if ($this->sexdesc == 'PRIA') {
+                $employee->sexcode = '0';
+            } else {
+                $employee->sexcode = '1';
+            }
+            $employee->pendidikan       = $this->pendidikan;
+            $employee->agama            = $this->agama;
+            $employee->alamat_ktp       = $this->alamat_ktp;
+            $employee->alamat_domisili  = $this->alamat_domisili;
+            $employee->npwp             = $this->npwp;
+            $employee->bank             = $this->bank;
+            $employee->bank_norek       = $this->bank_norek;
+            $employee->bank_account     = $this->bank_account;
+            $employee->nik              = $this->nik;
+            $employee->jabdesc          = $this->jabdesc;
+            $employee->jkdesc           = $this->jkdesc;
+            $employee->tglmasuk         = $this->tglmasuk;
 
 
-        $employee->save();
-        $this->dispatch('tambahkaryawanberhasil');
+            $employee->save();
+            $this->dispatch('tambahkaryawanberhasil');
 
-        $this->resetValidation();
+            $this->reset();
+        }
     }
     public function riset()
     {

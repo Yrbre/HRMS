@@ -93,47 +93,6 @@ class Index extends Component
         $this->trdesc_sjh                           = $trainee ? $trainee->trdesc_sjh : null;
         $this->tr_apar                              = $trainee ? $trainee->tr_apar : null;
         $this->trdesc_apar                          = $trainee ? $trainee->trdesc_apar : null;
-
-
-
-        // $karyawan = Trainee::findOrFail($id);
-        // $this->namalengkap                      = $karyawan->namalengkap;
-        // $this->nik                              = $karyawan->nik;
-        // $this->deptdesc                         = $karyawan->deptdesc;
-        // $this->jabdesc                          = $karyawan->jabdesc;
-        // $this->tr_orientasi                     = $karyawan->tr_orientasi;
-        // $this->trdesc_orientasi                 = $karyawan->trdesc_orientasi;
-        // $this->tr_refreshing_course             = $karyawan->tr_refreshing_course;
-        // $this->trdesc_refreshing_course         = $karyawan->trdesc_refreshing_course;
-        // $this->tr_qcdasar                       = $karyawan->tr_qcdasar;
-        // $this->trdesc_qcdasar                   = $karyawan->trdesc_qcdasar;
-        // $this->tr_qcmenengah                    = $karyawan->tr_qcmenengah;
-        // $this->trdesc_qcmenengah                = $karyawan->trdesc_qcmenengah;
-        // $this->tr_qclanjut                      = $karyawan->tr_qclanjut;
-        // $this->trdesc_qclanjut                  = $karyawan->trdesc_qclanjut;
-        // $this->tr_proses                        = $karyawan->tr_proses;
-        // $this->trdesc_proses                    = $karyawan->trdesc_proses;
-        // $this->tr_trainer                       = $karyawan->tr_trainer;
-        // $this->trdesc_trainer                   = $karyawan->trdesc_trainer;
-        // $this->tr_lingkungan                    = $karyawan->tr_lingkungan;
-        // $this->trdesc_lingkungan                = $karyawan->trdesc_lingkungan;
-        // $this->tr_insidentil                    = $karyawan->tr_insidentil;
-        // $this->trdesc_insidentil                = $karyawan->trdesc_insidentil;
-        // $this->tr_p3k                           = $karyawan->tr_p3k;
-        // $this->trdesc_p3k                       = $karyawan->trdesc_p3k;
-        // $this->tr_smk3                          = $karyawan->tr_smk3;
-        // $this->trdesc_smk3                      = $karyawan->trdesc_smk3;
-        // $this->tr_radioaktif                    = $karyawan->tr_radioaktif;
-        // $this->trdesc_radioaktif                = $karyawan->trdesc_radioaktif;
-        // $this->tr_sio                           = $karyawan->tr_sio;
-        // $this->trdesc_sio                       = $karyawan->trdesc_sio;
-        // $this->tr_iso                           = $karyawan->tr_iso;
-        // $this->trdesc_iso                       = $karyawan->trdesc_iso;
-        // $this->tr_sjh                           = $karyawan->tr_sjh;
-        // $this->trdesc_sjh                       = $karyawan->trdesc_sjh;
-        // $this->tr_apar                          = $karyawan->tr_apar;
-        // $this->trdesc_apar                      = $karyawan->trdesc_apar;
-        // $this->id_training                      = $karyawan->id;
     }
 
 

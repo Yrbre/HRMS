@@ -20,7 +20,8 @@ class Index extends Component
     public $paginate = 10;
     protected $paginationTheme = 'bootstrap';
     public $search = '';
-    public $nama;
+    public $nama, $nik, $namalengkap, $jkdesc, $jabdesc, $deptdesc, $id;
+
 
 
 
@@ -67,5 +68,24 @@ class Index extends Component
     public function detail($id)
     {
         return redirect()->route('superadmin.karyawan.detailkaryawan', ['id' => $id]);
+    }
+    public function delete($id)
+    {
+
+        $employee = Employee::findOrFail($id);
+        $this->id           = $employee->id;
+        $this->nik          = $employee->nik;
+        $this->namalengkap  = $employee->namalengkap;
+        $this->jkdesc       = $employee->jkdesc;
+        $this->deptdesc     = $employee->deptdesc;
+        $this->jabdesc      = $employee->jabdesc;
+    }
+
+    public function destroykaryawan($id)
+    {
+        $karyawan = Employee::findOrFail($id);
+        $karyawan->delete();
+
+        $this->dispatch('CloseDeletekaryawanModal');
     }
 }

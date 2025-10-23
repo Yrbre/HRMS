@@ -35,7 +35,7 @@
                                             <th scope="col">Working</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Tanggal Masuk</th>
-                                            <th scope="col">View</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-dark">
@@ -53,6 +53,7 @@
                                             <td><small>{{ $item->tglmasuk }}</small></td>
                                             <td>
                                                 <button wire:click="detail({{ $item->id }})" type="button" class="btn btn-info btn-sm"><i class="bi bi-info-circle"></i></button>
+                                                <button wire:click="delete({{ $item->id }})" type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletekaryawanlargeModal"><i class="bi bi-trash"></i></button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -69,6 +70,29 @@
     </section>
     <!-- create Modal -->
     @include('livewire.superadmin.karyawan.create')
+
+
+    @include('livewire.superadmin.karyawan.deletekaryawan')
+
+    @script
+    <script>
+        $wire.on('CloseDeletekaryawanModal', () => {
+            $('#deletekaryawanlargeModal').modal('hide');
+            const notyf = new Notyf();
+
+            notyf.success({
+                message: 'Data Karyawan Berhasil Dihapus',
+                duration: 3000,
+                position: {
+                    x: 'right',
+                    y: 'top',
+                },
+            });
+        });
+    </script>
+    @endscript
+
+
 
 
 

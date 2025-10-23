@@ -8,7 +8,7 @@
         }
 
         .card-header {
-            background: linear-gradient(135deg, #4264ffff 0%, #a144ffff 100%);
+            background: #4264ffff;
             color: white;
             border-bottom: none;
             padding: 1.5rem;
@@ -95,7 +95,7 @@
     </style>
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header text-center">
                         <h3 class="mb-0"><i class="bi bi-person-plus me-2"></i>Form Tambah Karyawan</h3>
@@ -350,11 +350,11 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="jabdesc" class="form-label">Department</label>
+                                        <label for="jabdesc" class="form-label">Jabatan</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="bi bi-diagram-3"></i></span>
                                             <select wire:model="jabdesc" class="form-select @error('jabdesc') is-invalid @enderror" id="jabdesc">
-                                                <option selected value="">Pilih Department</option>
+                                                <option selected value="">Pilih Jabatan</option>
                                                 <option value="OPERATOR">Operator</option>
                                                 <option value="OPERATOR LEADER">Operator Leader</option>
                                                 <option value="SUPERVISOR">Supervisor</option>
@@ -456,6 +456,9 @@
         });
     </script>
     @endscript
+
+
+
 
 
 </div>
